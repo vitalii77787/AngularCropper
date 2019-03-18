@@ -1,0 +1,18 @@
+<mat-card>
+        <mat-spinner *ngIf="showSpinner"></mat-spinner>
+    <form [formGroup]='form' (ngSubmit)="register()">
+        <mat-form-field class="fullWidth">
+            <input matInput type="email"  placeholder="Email" formControlName='email' >
+        </mat-form-field>
+        <mat-form-field class="fullWidth">
+            <input matInput type="password"  placeholder="Password" formControlName='password'>
+        </mat-form-field>
+        <mat-form-field class="fullWidth">
+            <input matInput type="password"  placeholder="ConfirmPassword" formControlName='confirmPassword'>
+        </mat-form-field>
+        <span *ngIf="form.errors?.mismatchedFields">Passwords do not match!!!</span>
+        <br>
+        <button mat-raised-button color="primary" [disabled]="!form.valid" >Register</button>
+    </form>
+</mat-card>
+<!-- auth.register(form.value) -->
